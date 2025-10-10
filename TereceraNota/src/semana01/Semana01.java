@@ -1,4 +1,4 @@
-package src;
+package semana01;
 
 public class Semana01 {
 

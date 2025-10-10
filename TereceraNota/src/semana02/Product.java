@@ -1,4 +1,4 @@
-package src.semana02;
+package semana02;
 
 public class Product {
 

@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Compile all Java (src)",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-Command",
+        "& { $files = Get-ChildItem -Path src -Recurse -Filter *.java | ForEach-Object { $_.FullName }; if ($files) { & javac -d bin -sourcepath src $files } else { Write-Error 'No .java files found under src' } }"
+      ],
+      "group": { "kind": "build", "isDefault": true },
+      
+      "presentation": { "reveal": "always", "panel": "shared" }
+    },
+    {
+      "label": "Run Unidad03.Actividad03.Main",
+      "type": "shell",
+      "command": "java",
+      "args": ["-cp", "bin", "Unidad03.Actividad03.Main"],
+      "dependsOn": "Compile all Java (src)",
+      "presentation": { "reveal": "always", "panel": "shared" }
+    }
+  ]
+}
